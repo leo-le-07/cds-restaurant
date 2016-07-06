@@ -1,14 +1,15 @@
 <div class="row home">
   <div class="btn-group" role="group" aria-label="Top menu">
-    <button type="button" class="btn btn-secondary menu">Menu</button>
-    <button type="button" class="btn btn-secondary contact">Contact</button>
+    <button type="button" class="btn btn-secondary menu">Thực đơn</button>
+    <!-- <button type="button" class="btn btn-secondary contact">Contact</button> -->
+    <%= link_to "Liên hệ", contacts_path, class: 'btn btn-secondary contact' %>
   </div>
-  <h1 class="display-3">Are you hungry? Let order now !</h1>
-  <p class="lead">Delicious asian foods with cheap price are waiting for you</p>
+  <h1 class="display-3">Đặt món ngay hôm nay!</h1>
+  <p class="lead">Giá tốt trong tầm tay!</p>
   <div class="center-block">
     <form class="form-inline">
-      <input type="text" name="search-input" class="form-control" placeholder="Search your foods">
-      <button class="btn btn-success-outline" type="submit">Search</button>
+      <input type="text" name="search-input" class="form-control" placeholder="Tìm món ăn yêu thích ...">
+      <button class="btn btn-success-outline" type="submit">Tìm kiếm</button>
     </form>
   </div>
 </div>
