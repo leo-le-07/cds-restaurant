@@ -5,10 +5,9 @@
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <script src="http://maps.googleapis.com/maps/api/js"></script>
+    <!-- <script src="http://maps.googleapis.com/maps/api/js"></script> -->
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
     <nav class="navbar navbar-light bg-faded">
       <a href="/" class="navbar-brand">Navbar</a>
@@ -26,6 +25,10 @@
           <a href="#" class="nav-link">About</a>
         </li>
       </ul>
+      <form class="form-inline pull-xs-right">
+        <input type="text" name="search-food" class="form-control" placeholder="Tìm món ăn yêu thích ...">
+        <button class="btn btn-success-outline" type="submit">Tìm kiếm</button>
+      </form>
     </nav>
     <%= yield %>
   </body>
