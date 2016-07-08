@@ -6,9 +6,9 @@
   <h1 class="display-3">Đặt món ngay hôm nay!</h1>
   <p class="lead">Giá tốt trong tầm tay!</p>
   <div class="center-block">
-    <form class="form-inline">
-      <input type="text" name="search-input" class="form-control" placeholder="Tìm món ăn yêu thích ...">
-      <button class="btn btn-success-outline" type="submit">Tìm kiếm</button>
-    </form>
+    <%= form_tag items_path, method: 'get', class: 'form-inline' do %>
+      <%= text_field_tag 'name', params[:name], placeholder: 'Tìm món ăn yêu thích ...', class: 'form-control' %>
+      <%= submit_tag 'Tìm kiếm', class: 'btn btn-success-outline' %>
+    <% end %>
   </div>
 </div>

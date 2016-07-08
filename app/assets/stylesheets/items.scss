@@ -1,0 +1,15 @@
+.item {
+  .form-inline .form-control {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  img {
+    width: 100%;
+  }
+}
+
+@media (min-width: 544px) {
+  .item .form-inline .form-control {
+    width: 40%;
+  }
+}

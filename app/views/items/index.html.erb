@@ -1,0 +1,11 @@
+<div class="container item">
+  <div class="row">
+    <div class="center-block">
+      <%= form_tag items_path, method: 'get', class: 'form-inline' do %>
+        <%= text_field_tag 'name', params[:name], placeholder: 'Tìm món ăn yêu thích ...', class: 'form-control' %>
+        <%= submit_tag 'Tìm kiếm', class: 'btn btn-success-outline' %>
+      <% end %>
+    </div>
+  </div>
+  <%= render partial: "item", locals: { items: @items } %>
+</div>

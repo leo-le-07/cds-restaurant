@@ -25,10 +25,10 @@
           <a href="#" class="nav-link">About</a>
         </li>
       </ul>
-      <form class="form-inline pull-xs-right">
-        <input type="text" name="search-food" class="form-control" placeholder="Tìm món ăn yêu thích ...">
-        <button class="btn btn-success-outline" type="submit">Tìm kiếm</button>
-      </form>
+      <%= form_tag items_path, method: 'get', class: 'form-inline pull-xs-right' do %>
+        <%= text_field_tag 'name', params[:name], placeholder: 'Tìm món ăn yêu thích ...', class: 'form-control' %>
+        <%= submit_tag 'Tìm kiếm', class: 'btn btn-success-outline' %>
+      <% end %>
     </nav>
     <%= yield %>
   </body>
