@@ -10,10 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160707004842) do
+ActiveRecord::Schema.define(version: 20160708145914) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "contact_details", force: :cascade do |t|
+    t.integer  "order_id"
+    t.string   "name"
+    t.string   "phone"
+    t.string   "email"
+    t.string   "address"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["order_id"], name: "index_contact_details_on_order_id", using: :btree
+  end
+
+  create_table "discounts", force: :cascade do |t|
+    t.string   "code"
+    t.decimal  "percent"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "items", force: :cascade do |t|
     t.string   "name"
@@ -27,11 +45,39 @@ ActiveRecord::Schema.define(version: 20160707004842) do
     t.index ["section_id"], name: "index_items_on_section_id", using: :btree
   end
 
+  create_table "order_details", force: :cascade do |t|
+    t.integer  "order_id"
+    t.integer  "item_id"
+    t.integer  "quantity"
+    t.decimal  "price"
+    t.decimal  "total_price"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["item_id"], name: "index_order_details_on_item_id", using: :btree
+    t.index ["order_id"], name: "index_order_details_on_order_id", using: :btree
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.string   "order_number"
+    t.decimal  "total_item_price"
+    t.integer  "discount_id"
+    t.decimal  "discount_price"
+    t.decimal  "delivery_cost"
+    t.decimal  "total_price"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["discount_id"], name: "index_orders_on_discount_id", using: :btree
+  end
+
   create_table "sections", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "contact_details", "orders"
   add_foreign_key "items", "sections"
+  add_foreign_key "order_details", "items"
+  add_foreign_key "order_details", "orders"
+  add_foreign_key "orders", "discounts"
 end

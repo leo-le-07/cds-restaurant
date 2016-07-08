@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  order_number: MyString
+  total_item_price: 9.99
+  discount: one
+  discount_price: 9.99
+  delivery_cost: 9.99
+  total_price: 9.99
+
+two:
+  order_number: MyString
+  total_item_price: 9.99
+  discount: two
+  discount_price: 9.99
+  delivery_cost: 9.99
+  total_price: 9.99
