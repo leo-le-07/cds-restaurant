@@ -1,50 +1,11 @@
 <div class="container menu">
   <div class="row section">
     <div class="btn-group" role="group" aria-label="section">
-      <button type="button" class="btn btn-secondary">Breakfast</button>
-      <button type="button" class="btn btn-secondary">Lunch</button>
-      <button type="button" class="btn btn-secondary">Dinner</button>
-      <button type="button" class="btn btn-secondary">Drinks</button>
+      <%= link_to "Breakfast", menus_path(section: "Breakfast"), class: "btn btn-secondary #{'active' if @section == 'Breakfast'}" %>
+      <%= link_to "Lunch", menus_path(section: "Lunch"), class: "btn btn-secondary #{'active' if @section == 'Lunch'}" %>
+      <%= link_to "Dinner", menus_path(section: "Dinner"), class: "btn btn-secondary #{'active' if @section == 'Dinner'}" %>
+      <%= link_to "Drinks", menus_path(section: "Drinks"), class: "btn btn-secondary #{'active' if @section == 'Drinks'}" %>
     </div>
   </div>
-  <div class="row item-container">
-    <div class="col-md-6">
-      <table class="table table-hover">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Tên món</th>
-            <th>Đơn giá</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td>Mark</td>
-            <td><button type="button" class="btn btn-danger">70.000</button></td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Jacob</td>
-            <td><button type="button" class="btn btn-danger">70.000</button></td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>Larry</td>
-            <td><button type="button" class="btn btn-danger">70.000</button></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="col-md-6">
-      <div class="card">
-        <img class="card-img-top" src="http://lorempixel.com/g/400/200/" alt="Card image cap">
-        <div class="card-block">
-          <h4 class="card-title">Card title</h4>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <%= link_to "Đặt món", orders_path, class: 'btn btn-danger' %>
-        </div>
-      </div>
-    </div>
-  </div>
+  <%= render partial: "item", locals: { section: @section, items: @items, selected_item: @selected_item } %>
 </div>

@@ -9,4 +9,30 @@
   .card-img-top {
     width: 100%;
   }
+  a:focus.item-link, a:hover.item-link {
+    color: #0275d8;
+    text-decoration: none;
+  }
+
+  table th > a {
+    color: #000000;
+    &:hover {
+      color: #000000;
+      text-decoration: none;
+    }
+  }
+
+  th .current {
+    padding-right: 25px;
+    background-repeat: no-repeat;
+    background-position: right center;
+  }
+
+  th .asc {
+    background-image: image_url('up_arrow.gif');
+  }
+
+  th .desc {
+    background-image: image_url('down_arrow.gif');
+  }
 }

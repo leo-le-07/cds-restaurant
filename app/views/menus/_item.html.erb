@@ -1,0 +1,34 @@
+<div class="row item-container">
+  <div class="col-md-6">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th><%= sortable 'name', 'Tên món' %></th>
+          <th><%= sortable 'price', 'Đơn giá' %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% items.each_with_index do |item, index| %>
+          <tr>
+            <td><%= index+1 %></td>
+            <td><%= link_to item.name, menus_path(section: @section, item_id: item.id), class: "item-link" %></td>
+            <td><button type="button" class="btn btn-danger"><%= number_to_currency(item.price, precision: 0, unit: "VND", delimiter: ",", format: "%n %u") %></button></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <% if !selected_item.nil? %>
+    <div class="col-md-6">
+      <div class="card">
+        <img class="card-img-top" src="<%= selected_item.image_url %>" alt="<%= selected_item.name %>">
+        <div class="card-block">
+          <h4 class="card-title"><%= selected_item.name %></h4>
+          <p class="card-text"><%= selected_item.desc %></p>
+          <%= link_to "Đặt món", orders_path, class: 'btn btn-danger' %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
