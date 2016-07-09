@@ -1,14 +1,16 @@
 <div class="row home">
   <div class="btn-group" role="group" aria-label="Top menu">
-    <%= link_to "Thực đơn", menus_path, class: 'btn btn-secondary menu' %>
-    <%= link_to "Liên hệ", contacts_path, class: 'btn btn-secondary contact' %>
+    <%= link_to "Thực đơn", menus_path, class: 'btn btn-warning menu' %>
+    <%= link_to "Liên hệ", contacts_path, class: 'btn btn-warning contact' %>
   </div>
-  <h1 class="display-3">Đặt món ngay hôm nay!</h1>
-  <p class="lead">Giá tốt trong tầm tay!</p>
+  <div class="name">
+    <h1 class="display-3">Phở tái 2 trứng</h1>
+    <p class="lead">Kính chào quý khách!</p>
+  </div>
   <div class="center-block">
     <%= form_tag items_path, method: 'get', class: 'form-inline' do %>
       <%= text_field_tag 'name', params[:name], placeholder: 'Tìm món ăn yêu thích ...', class: 'form-control' %>
-      <%= submit_tag 'Tìm kiếm', class: 'btn btn-success-outline' %>
+      <%= submit_tag 'Tìm kiếm', class: 'btn btn-warning' %>
     <% end %>
   </div>
 </div>

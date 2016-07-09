@@ -1,12 +1,11 @@
-// Place all the styles related to the home controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
 .home {
   height: 100vh;
   margin-bottom: 0;
   text-align: center;
-  /*background-color: #E91E63;*/
+  background-image: image_url('background.jpg');
+  background-repeat: no-repeat;
+  /*background-color: #f7f7f9;*/
+  background-position: center;
 
   .btn-group, .btn-group-vertical {
     width: 40%;
@@ -14,17 +13,55 @@
     margin-bottom: 20px;
   }
 
-  .btn.btn-secondary.menu {
+  .btn.menu {
     width: 50%;
   }
 
-  .btn.btn-secondary.contact {
+  .btn.contact {
     width: 50%;
+  }
+
+  .btn-group > .btn, .btn-group-vertical > .btn {
+    border-color: white;
+    border-width: 2px;
+  }
+
+  div.name {
+    background-color: rgba(255, 255, 255, 0.5);
   }
 }
 
 @media (min-width: 544px) {
   .home .form-inline .form-control {
-    width: 40%;
+    width: 33%;
+  }
+}
+
+body {
+  .cart {
+    display: block;
+    padding-top: .425rem;
+    padding-bottom: .425rem;
+    margin-right: .9rem;
+  }
+  nav a:focus, nav a:hover {
+    text-decoration: none;
+  }
+  .bg-faded {
+    background-color: #ffffff;
+  }
+  .form-control:focus {
+    border-color: #f0ad4e;
+  }
+
+  .logo {
+    height: 50px;
+    width: 54px;
+    margin-right: 8px;
+    margin-left: 39px;
+  }
+
+  ul.nav.navbar-nav {
+    margin-top: 8px;
   }
 }

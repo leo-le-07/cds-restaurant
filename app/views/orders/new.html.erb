@@ -1,94 +1,91 @@
 <div class="container order">
+  <% if flash[:notice] %>
+    <div class="row alert alert-warning">
+      <%= flash[:notice] %>
+    </div>
+  <% end %>
   <div class="row">
     <h1 class="display-3">Đặt hàng</h1>
   </div>
-  <div class="row">
-    <div class="col-md-6">
-      <%= form_for @order do |order| %>
-        <%= fields_for @contact_detail do |contact_detail| %>
-          <fieldset class="form-group">
-            <%= contact_detail.label :name, "Tên khách hàng" %>
-            <%= contact_detail.text_field :name, class: "form-control", placeholder: "" %>
-          </fieldset>
-          <fieldset class="form-group">
-            <%= contact_detail.label :phone %>
-            <%= contact_detail.telephone_field :phone, class: "form-control", placeholder: "" %>
-            <small class="text-muted">Dùng để nhận tin nhắn xác nhận đặt hàng</small>
-          </fieldset>
-          <fieldset class="form-group">
-            <%= contact_detail.label :email %>
-            <%= contact_detail.email_field :email, class: "form-control", placeholder: "" %>
-            <small class="text-muted">Dùng để nhận email xác nhận đặt hàng</small>
-          </fieldset>
-          <fieldset class="form-group">
-            <%= contact_detail.label :address %>
-            <%= contact_detail.text_area :address, class: "form-control", placeholder: "" %>
-          </fieldset>
-          <fieldset class="form-group">
-            <label for="coupon-code">Mã giảm giá</label>
-            <div class="input-group">
-              <input type="text" class="form-control" name="coupon-code" id="coupon-code" placeholder="">
-              <span class="input-group-btn">
-                <button class="btn btn-success">Áp dụng</button>
-              </span>
-            </div>
-          </fieldset>
-          <button class="btn btn-default">Tiếp tục chọn món</button>
+    <%= form_for @order do |order| %>
+      <div class="row">
+        <div class="col-md-8">
+          <table class="table price-table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Tên món</th>
+                <th>Đơn giá</th>
+                <th>Số lượng</th>
+                <th>Thành tiền</th>
+              </tr>
+            </thead>
+            <tbody>
+
+              <% @order.order_details.each_with_index do |order_detail, index| %>
+                <tr>
+                  <td><%= index + 1 %></td>
+                  <td><%= order_detail.item.name %></td>
+                  <td class="price"><%= format_currency(order_detail.price) %></td>
+                  <td class="number"><%= order_detail.quantity %></td>
+                  <td class="price"><%= format_currency(order_detail.total_price) %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+          <table class="table">
+            <tbody>
+              <tr>
+                <td>Phí giao hàng</td>
+                <td class="price"><%= format_currency(@order.delivery_cost) %></td>
+              </tr>
+              <!-- <tr>
+                <td>Giảm giá</td>
+                <td class="price">50.000</td>
+              </tr> -->
+              <tr>
+                <td>Tổng cộng</td>
+                <td class="price"><%= format_currency(@order.total_price) %></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-md-4">
+          <%= order.fields_for :contact_detail do |contact_detail| %>
+            <fieldset class="form-group">
+              <%= contact_detail.label :name, "Tên khách hàng" %>
+              <%= contact_detail.text_field :name, class: "form-control", placeholder: "" %>
+            </fieldset>
+            <fieldset class="form-group">
+              <%= contact_detail.label :phone %>
+              <%= contact_detail.telephone_field :phone, class: "form-control", placeholder: "" %>
+              <small class="text-muted">Dùng để nhận tin nhắn xác nhận đặt hàng</small>
+            </fieldset>
+            <fieldset class="form-group">
+              <%= contact_detail.label :email %>
+              <%= contact_detail.email_field :email, class: "form-control", placeholder: "" %>
+              <small class="text-muted">Dùng để nhận email xác nhận đặt hàng</small>
+            </fieldset>
+            <fieldset class="form-group">
+              <%= contact_detail.label :address %>
+              <%= contact_detail.text_area :address, class: "form-control", placeholder: "" %>
+            </fieldset>
+            <!-- <fieldset class="form-group">
+              <label for="coupon-code">Mã giảm giá</label>
+              <div class="input-group">
+                <input type="text" class="form-control" name="coupon-code" id="coupon-code" placeholder="">
+                <span class="input-group-btn">
+                  <button class="btn btn-success">Áp dụng</button>
+                </span>
+              </div>
+            </fieldset> -->
+          <% end %>
+        </div>
+        <div class="row command-group-button">
           <%= order.submit "Đặt hàng", class: "btn btn-primary" %>
-        <% end %>
-      <% end %>
-    </div>
-    <div class="col-md-6">
-      <table class="table item-price-table">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Tên món</th>
-            <th>Đơn giá</th>
-            <th>Số lượng</th>
-            <th>Thành tiền</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td>Mark</td>
-            <td>70.000</td>
-            <td>1</td>
-            <td class="item-price">70.000</td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>Mark</td>
-            <td>70.000</td>
-            <td>1</td>
-            <td class="item-price">70.000</td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>Mark</td>
-            <td>70.000</td>
-            <td>1</td>
-            <td class="item-price">70.000</td>
-          </tr>
-        </tbody>
-      </table>
-      <table class="table">
-        <tbody>
-          <tr>
-            <td>Giảm giá</td>
-            <td>50.000</td>
-          </tr>
-          <tr>
-            <td>Phí giao hàng</td>
-            <td>50.000</td>
-          </tr>
-          <tr>
-            <td>Tổng cộng</td>
-            <td>50.000</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+          <%= link_to "Tiếp tục chọn món", menus_path, class: "btn btn-default" %>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>

@@ -1,4 +1,9 @@
 <div class="container menu">
+  <% if flash[:notice] %>
+    <div class="row section alert alert-success">
+      <%= flash[:notice] %>
+    </div>
+  <% end %>
   <div class="row section">
     <div class="btn-group" role="group" aria-label="section">
       <%= link_to "Breakfast", menus_path(section: "Breakfast"), class: "btn btn-secondary #{'active' if @section == 'Breakfast'}" %>

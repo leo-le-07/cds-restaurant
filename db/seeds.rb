@@ -6,6 +6,8 @@
 #   movies = Movie.create([ name: 'Star Wars' ,  name: 'Lord of the Rings' ])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Section.delete_all
+
 section_breakfast = Section.create(name: 'Breakfast');
 section_lunch     = Section.create(name: 'Lunch');
 section_dinner    = Section.create(name: 'Dinner');
@@ -35,3 +37,5 @@ end
   item.image_url = "http://loremflickr.com/320/240/food"
   item.save
 end
+
+Discount.create(code: 'CODERSCHOOL', percent: 50)

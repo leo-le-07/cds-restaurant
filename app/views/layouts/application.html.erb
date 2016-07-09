@@ -4,31 +4,34 @@
     <title>CdsRestaurant</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <!-- <script src="http://maps.googleapis.com/maps/api/js"></script> -->
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbolinks-track": "reload" %>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCsFH3RshXU357QK_Uh2AIEhPMNN6v6xSo&callback=initMap">
+    </script>
   </head>
   <body>
     <nav class="navbar navbar-light bg-faded">
-      <a href="/" class="navbar-brand">Navbar</a>
+      <a href="/" class="navbar-brand"><%= image_tag("logo.png", alt: "logo restaurant", class: "logo") %></a>
       <ul class="nav navbar-nav">
-        <li class="nav-item active">
-          <a href="#" class="nav-link">Home <span class="sr-only">(current)</span></a>
+        <li class="nav-item">
+          <a href="/" class="nav-link">Trang chủ</a>
         </li>
         <li class="nav-item">
-          <a href="#" class="nav-link">Features</a>
+          <%= link_to "Thực đơn", menus_path, class: 'nav-link' %>
         </li>
         <li class="nav-item">
-          <a href="#" class="nav-link">Pricing</a>
-        </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link">About</a>
+          <%= link_to "Liên hệ", contacts_path, class: 'nav-link' %>
         </li>
       </ul>
-      <%= form_tag items_path, method: 'get', class: 'form-inline pull-xs-right' do %>
-        <%= text_field_tag 'name', params[:name], placeholder: 'Tìm món ăn yêu thích ...', class: 'form-control' %>
-        <%= submit_tag 'Tìm kiếm', class: 'btn btn-success-outline' %>
+
+      <%= form_tag items_path, method: "get", class: "form-inline pull-xs-right" do %>
+        <%= text_field_tag "name", params[:name], placeholder: "Tìm món ăn yêu thích ...", class: "form-control" %>
+        <%= submit_tag "Tìm kiếm", class: "btn btn-warning-outline" %>
       <% end %>
+      <div class="pull-xs-right">
+        <%= link_to "Giỏ hàng (#{total_items})", new_order_path, class: "cart" %>
+      </div>
     </nav>
     <%= yield %>
   </body>

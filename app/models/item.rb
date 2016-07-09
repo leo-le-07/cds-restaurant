@@ -8,4 +8,12 @@ class Item < ApplicationRecord
       order("name")
     end
   end
+
+  def self.items(items_id)
+    items = []
+    items_id.each do |item_id|
+      items.push(Item.find(item_id))
+    end
+    items
+  end
 end
