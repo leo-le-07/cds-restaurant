@@ -30,6 +30,7 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+gem 'jquery-turbolinks'
 
 gem 'bootstrap', '~> 4.0.0.alpha3'
 source 'https://rails-assets.org' do

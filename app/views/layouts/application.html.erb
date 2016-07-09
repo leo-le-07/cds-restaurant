@@ -6,9 +6,6 @@
 
     <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbolinks-track": "reload" %>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCsFH3RshXU357QK_Uh2AIEhPMNN6v6xSo&callback=initMap">
-    </script>
   </head>
   <body>
     <nav class="navbar navbar-light bg-faded">
@@ -21,7 +18,7 @@
           <%= link_to "Thực đơn", menus_path, class: 'nav-link' %>
         </li>
         <li class="nav-item">
-          <%= link_to "Liên hệ", contacts_path, class: 'nav-link' %>
+          <%= link_to "Liên hệ", contacts_path, data: { no_turbolink: true}, class: 'nav-link' %>
         </li>
       </ul>
 
