@@ -1,6 +1,6 @@
-# CoderRestaurant Website
+# Phở tái 2 trứng Website
 
-**Coder Restaurant** is a Ruby on Rails restaurant website let users order foods.
+**Phở tái 2 trứng** is a Ruby on Rails restaurant website let users order foods.
 
 Submitted by: Leo Le
 
