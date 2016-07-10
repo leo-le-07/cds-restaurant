@@ -1,1 +1,51 @@
-hello
+<div class="container item">
+  <% if flash[:notice] %>
+    <div class="row section alert alert-warning">
+      <%= flash[:notice] %>
+    </div>
+  <% end %>
+  <% if flash[:success] %>
+    <div class="row section alert alert-success">
+      <%= flash[:success] %>
+    </div>
+  <% end %>
+  <div class="row">
+    <div class="col-md-4">
+      <%= image_tag(@item.image_url, alt: "@item.name") %>
+    </div>
+    <div class="col-md-8">
+      <p class="item-name"><%= @item.name %></p>
+      <p class="view-comment-group">
+        <span class="view"><%= @item.view_count %></span>
+        <span class="comment"><%= @item.comments.count %></span>
+        <span class="averate-rate"><%= @item.average_rate %></span>
+      </p>
+      <p class="item-desc lead"><%= @item.desc %></p>
+      <p class="item-price"><%= link_to number_to_currency(@item.price, precision: 0, unit: "VND", delimiter: ",", format: "%n %u"), order_details_add_path(item_id: @item.id), class: "btn btn-danger" %></p>
+    </div>
+  </div>
+  <div class="row comment-container">
+    <div class="col-md-4">
+      <%= render partial: "comments/form", locals: {comment: @comment, item_id: @item.id} %>
+    </div>
+    <div class="col-md-8">
+      <% @item.comments.each do |comment| %>
+        <div class="comment-item card card-block">
+          <h4 class="card-title name"><%= comment.title %></h4>
+          <p class="rate">
+            <% comment.rate.times do |i| %>
+              <span class="rate-star"></span>
+            <% end %>
+          </p>
+          <p class="card-text create-date">Gửi lúc: <%= comment.created_at %></p>
+          <p class="card-text"><%= comment.content %></p>
+        </div>
+      <% end %>
+      <% if @item.comments.count == 0 %>
+        <div class="comment-item card card-block">
+          <p class="card-text">Chưa có bình luận</p>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -6,6 +6,69 @@
   img {
     width: 100%;
   }
+  .item-name {
+    font-size: 2rem;
+    color: #ec971f;
+  }
+  .item-desc {
+    font-size: 1rem;
+  }
+  .comment-container {
+    margin-top: 40px;
+    .comment-item {
+      .create-date {
+        font-size: .8rem;
+        font-style: italic;
+        color: #5d5d5d;
+        margin-top: -7px;
+      }
+      .name {
+        display: inline-block;
+      }
+      p.rate {
+        display: inline-block;
+        margin-left: 1rem;
+      }
+      .rate-star {
+        content: "";
+        width: 16px;
+        height: 17px;
+        background-image: image_url("star.png");
+        background-repeat: no-repeat;
+        display: inline-block;
+      }
+    }
+  }
+  .view-comment-group {
+    span {
+      margin-right: 5px;
+    }
+    span.view:before{
+      content: "";
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      background-image: image_url("view.png");
+      background-repeat: no-repeat;
+    }
+    span.comment:before{
+      content: "";
+      display: inline-block;
+      width: 16px;
+      height: 12px;
+      background-image: image_url("comment.png");
+      background-repeat: no-repeat;
+    }
+    span.averate-rate:before{
+      content: "";
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      background-image: image_url("star.png");
+      background-repeat: no-repeat;
+      margin-right: 2px;
+    }
+  }
 }
 
 @media (min-width: 544px) {

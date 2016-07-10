@@ -25,9 +25,11 @@
         <%= link_to image_tag(selected_item.image_url, class: "card-img-top", alt: "selected_item.name"), item_path(selected_item) %>
         <div class="card-block">
           <h4 class="card-title"><%= link_to selected_item.name, item_path(selected_item) %></h4>
-          <div class="view-comment-group">
-            <p><%= image_tag("view.png") %> <%= selected_item.view_count %></p>
-          </div>
+          <p class="view-comment-group">
+            <span class="view"><%= selected_item.view_count %></span>
+            <span class="comment"><%= selected_item.comments.count %></span>
+            <span class="averate-rate"><%= selected_item.average_rate %></span>
+          </p>
           <p class="card-text"><%= selected_item.desc %></p>
           <%= link_to "Đặt món", orders_path, class: 'btn btn-danger' %>
         </div>

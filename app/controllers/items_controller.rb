@@ -8,6 +8,8 @@ class ItemsController < ApplicationController
   def show
     @item.view_count += 1
     @item.save
+    @comment = Comment.new
+    @comment.item = @item
   end
 
   private

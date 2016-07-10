@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   get 'order_details/add', to: 'order_details#add'
 
   root 'home#index'
@@ -6,4 +7,5 @@ Rails.application.routes.draw do
   get '/menus', to: 'menus#index'
   resources :orders
   resources :items
+  resources :comments
 end

@@ -1,0 +1,18 @@
+<%= form_for comment do |comment| %>
+  <fieldset class="form-group">
+    <%= hidden_field(:comment, :item_id) %>
+  </fieldset>
+  <fieldset class="form-group">
+    <%= comment.label :title, "Tiêu đề" %>
+    <%= comment.text_field :title, class: "form-control", placeholder: "" %>
+  </fieldset>
+  <fieldset class="form-group">
+    <%= comment.label :content, "Nội dung" %>
+    <%= comment.text_field :content, class: "form-control", placeholder: "" %>
+  </fieldset>
+  <fieldset class="form-group">
+    <%= comment.label :rate, "Đánh giá" %>
+    <%= comment.select :rate, options_for_select([["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5", 5]]) %>
+  </fieldset>
+  <%= comment.submit "Gửi", class: "btn btn-warning-outline" %>
+<% end %>

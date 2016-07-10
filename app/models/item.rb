@@ -1,8 +1,19 @@
 class Item < ApplicationRecord
   belongs_to :section
+  has_many :comments
 
   def image_url
     self[:image_url] << CGI::escape(name)
+  end
+
+  def average_rate
+    result = 0
+    number_comments = comments.count
+    unless number_comments == 0
+      total_rate = comments.collect { |c| c.rate }.sum
+      result = total_rate / number_comments
+    end
+    result.round
   end
 
   def self.search(search)
