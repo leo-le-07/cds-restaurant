@@ -14,12 +14,24 @@
     text-decoration: none;
   }
 
+  .item-view {
+    text-align: center;
+  }
+
+  .item-price {
+    text-align: right;
+  }
+
   table th > a {
     color: #000000;
     &:hover {
       color: #000000;
       text-decoration: none;
     }
+  }
+
+  table th {
+    text-align: center;
   }
 
   th .current {
@@ -34,5 +46,16 @@
 
   th .desc {
     background-image: image_url('down_arrow.gif');
+  }
+
+  div.card-block {
+    .card-title {
+      display: inline-block;
+    }
+  }
+
+  div.view-comment-group {
+    display: inline-block;
+    float: right;
   }
 }
