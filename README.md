@@ -59,7 +59,7 @@ The following **known issues**:
 
 Here's a walkthrough of implemented user stories:
 
-![Video Walkthrough](http://i.imgur.com/juemFe6.gifv)
+[Video Walkthrough](http://i.imgur.com/juemFe6.gifv)
 
 ## Notes
 
