@@ -21,7 +21,6 @@
               </tr>
             </thead>
             <tbody>
-
               <% @order.order_details.each_with_index do |order_detail, index| %>
                 <tr>
                   <td><%= index + 1 %></td>
@@ -39,10 +38,6 @@
                 <td>Phí giao hàng</td>
                 <td class="price"><%= format_currency(@order.delivery_cost) %></td>
               </tr>
-              <!-- <tr>
-                <td>Giảm giá</td>
-                <td class="price">50.000</td>
-              </tr> -->
               <tr>
                 <td>Tổng cộng</td>
                 <td class="price"><%= format_currency(@order.total_price) %></td>
@@ -57,32 +52,23 @@
               <%= contact_detail.text_field :name, class: "form-control", placeholder: "" %>
             </fieldset>
             <fieldset class="form-group">
-              <%= contact_detail.label :phone %>
+              <%= contact_detail.label :phone, "Điện thoại" %>
               <%= contact_detail.telephone_field :phone, class: "form-control", placeholder: "" %>
               <small class="text-muted">Dùng để nhận tin nhắn xác nhận đặt hàng</small>
             </fieldset>
             <fieldset class="form-group">
-              <%= contact_detail.label :email %>
+              <%= contact_detail.label :email, "Email" %>
               <%= contact_detail.email_field :email, class: "form-control", placeholder: "" %>
               <small class="text-muted">Dùng để nhận email xác nhận đặt hàng</small>
             </fieldset>
             <fieldset class="form-group">
-              <%= contact_detail.label :address %>
+              <%= contact_detail.label :address, "Địa chỉ" %>
               <%= contact_detail.text_area :address, class: "form-control", placeholder: "" %>
             </fieldset>
             <fieldset class="form-group">
               <%= label_tag :coupon, "Mã giảm giá" %>
               <%= text_field_tag "coupon", params[:coupon], class: "form-control", placeholder: "" %>
             </fieldset>
-            <!-- <fieldset class="form-group">
-              <label for="coupon-code">Mã giảm giá</label>
-              <div class="input-group">
-                <input type="text" class="form-control" name="coupon-code" id="coupon-code" placeholder="">
-                <span class="input-group-btn">
-                  <button class="btn btn-success">Áp dụng</button>
-                </span>
-              </div>
-            </fieldset> -->
           <% end %>
         </div>
         <div class="row command-group-button">
