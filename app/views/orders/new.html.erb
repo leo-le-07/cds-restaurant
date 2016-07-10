@@ -1,7 +1,7 @@
 <div class="container order">
-  <% if flash[:notice] %>
+  <% if flash[:warning] %>
     <div class="row alert alert-warning">
-      <%= flash[:notice] %>
+      <%= flash[:warning] %>
     </div>
   <% end %>
   <div class="row">
@@ -69,6 +69,10 @@
             <fieldset class="form-group">
               <%= contact_detail.label :address %>
               <%= contact_detail.text_area :address, class: "form-control", placeholder: "" %>
+            </fieldset>
+            <fieldset class="form-group">
+              <%= label_tag :coupon, "Mã giảm giá" %>
+              <%= text_field_tag "coupon", params[:coupon], class: "form-control", placeholder: "" %>
             </fieldset>
             <!-- <fieldset class="form-group">
               <label for="coupon-code">Mã giảm giá</label>

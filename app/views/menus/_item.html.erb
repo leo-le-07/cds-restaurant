@@ -13,7 +13,7 @@
           <tr>
             <td><%= link_to item.name, menus_path(section: @section, item_id: item.id), class: "item-link" %></td>
             <td class="item-view"><%= link_to item.view_count, menus_path(section: @section, item_id: item.id), class: "item-link" %></td>
-            <td class="item-price"><%= link_to number_to_currency(item.price, precision: 0, unit: "VND", delimiter: ",", format: "%n %u"), order_details_add_path(item_id: item.id), class: "btn btn-danger" %></td>
+            <td class="item-price"><%= link_to format_currency(item.price), order_details_add_path(item_id: item.id), class: "btn btn-danger" %></td>
           </tr>
         <% end %>
       </tbody>

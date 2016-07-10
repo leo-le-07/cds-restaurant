@@ -11,7 +11,7 @@ class Order < ApplicationRecord
   end
 
   def total_price
-    total_price_item + delivery_cost
+    total_price_item + delivery_cost - discount_price
   end
 
   private
