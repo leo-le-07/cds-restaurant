@@ -1,6 +1,10 @@
 class Item < ApplicationRecord
   belongs_to :section
 
+  def image_url
+    self[:image_url] << CGI::escape(name)
+  end
+
   def self.search(search)
     if search && !search.empty?
       where("lower(name) LIKE ?", "%#{search.downcase}%").order("name")
