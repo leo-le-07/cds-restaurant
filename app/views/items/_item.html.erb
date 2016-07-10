@@ -7,7 +7,12 @@
         <div class="row item-desc list-group-item-text">
           <div class="col-md-8">
             <p><%= item.desc %></p>
-            <p><button type="button" class="btn btn-danger"><%= number_to_currency(item.price, precision: 0, unit: "VND", delimiter: ",", format: "%n %u") %></button></p>
+            <p class="view-comment-group">
+              <span class="view"><%= item.view_count %></span>
+              <span class="comment"><%= item.comments.count %></span>
+              <span class="averate-rate"><%= item.average_rate %></span>
+            </p>
+            <p><%= link_to format_currency(item.price), order_details_add_path(item_id: item.id), class: "btn btn-danger" %></p>
           </div>
           <div class="col-md-4">
             <img src="<%= item.image_url %>" alt="<%= item.name %>">

@@ -18,7 +18,7 @@ class Item < ApplicationRecord
 
   def self.search(search)
     if search && !search.empty?
-      where("lower(name) LIKE ?", "%#{search.downcase}%").order("name")
+      where("lower(name) LIKE ? or lower(name_unsigned) LIKE ?", "%#{search.downcase}%", "%#{search.downcase}%").order("name")
     else
       order("name")
     end

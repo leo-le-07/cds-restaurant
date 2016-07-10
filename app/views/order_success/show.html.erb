@@ -3,7 +3,7 @@
     <h1 class="display-3">Đặt hàng thành công</h1>
   </div>
   <div class="row">
-    <div class="col-md-6 col-md-offset-3">
+    <div class="col-md-6">
       <table class="table price-table">
         <tbody>
           <tr>
@@ -21,6 +21,28 @@
           <tr class="total-price-row">
             <td>Tổng tiền cần thanh toán</td>
             <td class="price"><%= format_currency(@order.total_price) %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-6">
+      <table class="table price-table">
+        <tbody>
+          <tr>
+            <td>Họ và tên</td>
+            <td><%= @order.contact_detail.name.upcase %></td>
+          </tr>
+          <tr>
+            <td>Điện thoại</td>
+            <td><%= @order.contact_detail.phone %></td>
+          </tr>
+          <tr>
+            <td>Email</td>
+            <td><%= @order.contact_detail.email %></td>
+          </tr>
+          <tr>
+            <td>Địa chỉ</td>
+            <td><%= @order.contact_detail.address %></td>
           </tr>
         </tbody>
       </table>

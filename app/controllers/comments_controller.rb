@@ -9,7 +9,6 @@ class CommentsController < ApplicationController
     else
       flash[:notice] = @comment.errors.full_messages.to_sentence
     end
-    byebug
     redirect_to "/items/#{@comment.item_id}"
   end
 

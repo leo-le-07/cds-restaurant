@@ -4,9 +4,9 @@
 
 Submitted by: Leo Le
 
-Time spent: **XX** hours spent in total
+Time spent: **21** hours spent in total
 
-URL: **heroku-app-url**
+URL: **thawing-shore-51560.herokuapp.com**
 
 ## User Stories
 
@@ -37,7 +37,7 @@ URL: **heroku-app-url**
 
 ### Optional:
 
-* [x] User can also filter by type of Cuisine.
+* [ ] User can also filter by type of Cuisine.
 * [x] User can see how many times each menu item has been viewed, and sort items by “most viewed”.
 * [x] User can leave a review (1-5 stars) for each dish, along with a text review.
 * [x] User can see reviews and an average review score.
@@ -48,27 +48,26 @@ URL: **heroku-app-url**
 
 The following **additional** features are implemented:
 
-* [ ] Something nice you added.
+* [x] Can search food item by Vietnamese name or English name
+* [x] Quantity of food item in order
 
 The following **known issues**:
 
-* List bugs or things that don't work yet
+* I got problem with the javascript. Particularly, I tried to apply the onClick event in <tr> component so that user can click on one row in order to open the item details. However, the javascript function didn't work at the first time I visited the page until I refresh it. I research the problem and maybe it is related to the turbolinks library. I removed the turbolinks but it didn't work anymore. (you can find more about these discusssions [here](http://stackoverflow.com/questions/17317816/rails-javascript-only-works-after-reload) or [here](http://stackoverflow.com/questions/27750863/rails-javascript-only-loads-when-you-refresh-page-not-on-the-original-page-load))
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
 
-![Video Walkthrough](path-to-your-GIF-file)
-
-GIF created with [LiceCap](http://www.cockos.com/licecap/).
+![Video Walkthrough](http://i.imgur.com/juemFe6.gifv)
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+* I have difficulty in working with relationship/association models and form helper with nested attributes.
 
 ## License
 
-    Copyright [yyyy] [name]
+    Copyright [2016] [Leo Le]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
